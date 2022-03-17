@@ -4,10 +4,6 @@
 class Api::V1::GamesController < ApplicationController
   include ResultCalculator
 
-
-
-  def test
-  end
   def play
     @player = game_params.fetch(:name)
     @player_move = game_params.fetch(:move)
