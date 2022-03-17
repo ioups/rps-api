@@ -3,19 +3,19 @@
 This is a fun little experiment with creating an ***API with Ruby on Rails***
 
 ### Usage
-**Gameplay**
+🕹 **Gameplay**
 
 The Game follow the given sequence : 
 - Player sends the API the move to play
 - Game engine chooses a move (w/o taking into account the player's move)
 - player receives a game result
 
-**Legal moves:**
+🖖 **Legal moves:**
 - "rock"
 - "paper"
 - "scissors"
 
-**format**
+💻 **format**
 - Player request 
 ```
 {
