@@ -43,7 +43,7 @@ The Game follow the given sequence :
 }
 ```
 
-##Environment
+## Environment
 
 - ruby "2.7.3" or higher
 * Use rbenv to manage ruby versions: [instalation instruction](https://github.com/rbenv/rbenv#homebrew-on-macos)
