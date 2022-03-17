@@ -1,9 +1,8 @@
 class ComputerMove
   attr_reader :name, :move
-  MOVES = %w(rock paper scissors)
 
   def initialize(bot_name)
     @name = bot_name
-    @move = MOVES.sample
+    @move = MoveRegulation.legit_moves.sample
   end
 end

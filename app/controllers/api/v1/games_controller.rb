@@ -1,6 +1,3 @@
-#require_relative "#{Rails.root}/lib/computer_move"
-# require_relative "#{Rails.root}/lib/result_calculator"
-
 class Api::V1::GamesController < ApplicationController
   include ResultCalculator
 
@@ -9,10 +6,15 @@ class Api::V1::GamesController < ApplicationController
     @player_move = game_params.fetch(:move)
     @computer = computer_action.name
     @computer_move = computer_action.move
-    render json: resp_body
+    if check_move
+      render json: resp_body
+    else
+      render json: {status: "error", code: 400, message: "Can't find this move ! pick rock paper or scissors !"}
+    end
   end
 
   private
+
   def resp_body
     {
       moves: [
@@ -31,13 +33,17 @@ class Api::V1::GamesController < ApplicationController
         }
     }
   end
+
   def calculation
     ResultCalculator.calculate(@player, @player_move, @computer, @computer_move)
   end
 
-
   def computer_action
     ComputerMove.new("Bot")
+  end
+
+  def check_move
+    MoveRegulation.legit_moves.include?(@player_move)
   end
 
   def game_params
