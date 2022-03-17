@@ -70,7 +70,7 @@ The Game follow the given sequence :
 Now you can go to http://localhost:3000 (or whatever port number you have used in your `.env` file) and play with the app.
 
 
-##play the app
+## Play the app
 
 - use *postman* or *curl* to send requests like so
 * Postman
@@ -86,11 +86,11 @@ with **Body** in **JSON**
 * Curl, in your terminal
 `curl -i -X POST -d '{ "name":"toto", "move":"rock" }' http://localhost:3000/api/v1/play -H "Content-Type: application/json" `
 
-##NOTES
+## NOTES
 
 - The app doesnt use the database so far, no storage needed, so we do not use Models or ActiveRecord
 
-##IDEAS FOR IMPROVEMENT
+## IDEAS FOR IMPROVEMENT
 - handling errors
 - handling wrong user inputs
 - Authentication, with `devise` and gem `simple_token_authentication`
