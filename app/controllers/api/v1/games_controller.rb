@@ -5,11 +5,11 @@ class Api::V1::GamesController < ApplicationController
     @player = game_params.fetch(:name)
     @player_move = game_params.fetch(:move)
     @computer = computer_action.name
-    @computer_move = computer_action.move
+    @com0puter_move = computer_action.move
     if check_move
       render json: resp_body
     else
-      render json: {status: "error", code: 400, message: "Can't find this move ! pick rock paper or scissors !"}
+      render json: {status: "error", code: 400, message: "Can't find this move ! pick rock paper or scissors !"}, :status => 400
     end
   end
 
