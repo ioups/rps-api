@@ -5,7 +5,7 @@ class Api::V1::GamesController < ApplicationController
     @player = game_params.fetch(:name)
     @player_move = game_params.fetch(:move)
     @computer = computer_action.name
-    @com0puter_move = computer_action.move
+    @computer_move = computer_action.move
     if check_move
       render json: resp_body
     else
