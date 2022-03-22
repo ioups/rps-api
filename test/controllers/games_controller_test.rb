@@ -17,6 +17,12 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
     assert_equal "Ponky", body["moves"][0]["name"]
   end
 
+  test "computer should return a move" do
+    post api_v1_play_url, params: { "name": "Ponky", "move": "paper" }, as: :json
+    body = JSON.parse(response.body)
+    assert_not_empty body["moves"][1]["move"]
+  end
+
   test "should return the correct computer  name" do
     post api_v1_play_url, params: { "name": "Ponky", "move": "paper" }, as: :json
     body = JSON.parse(response.body)
