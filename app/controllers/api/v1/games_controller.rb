@@ -1,5 +1,10 @@
 class Api::V1::GamesController < ApplicationController
   include ResultCalculator
+  RESULTS = []
+
+  def index
+    render json: RESULTS
+  end
 
   def play
     @player = game_params.fetch(:name)
@@ -7,6 +12,7 @@ class Api::V1::GamesController < ApplicationController
     @computer = computer_action.name
     @computer_move = computer_action.move
     if check_move
+      RESULTS << resp_body
       render json: resp_body
     else
       render json: {status: "error", code: 400, message: "Can't find this move ! pick rock paper or scissors !"}, :status => 400
